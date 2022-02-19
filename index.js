@@ -5,6 +5,8 @@ const chai = require('chai');
 const assert = chai.assert;
 chai.use(require('chai-fs'));
 
+const commandPath = '~/github/hchiba1/spang.py';
+
 fs.readdirSync('lib').forEach((subdir) => {
   if (!fs.statSync(`lib/${subdir}`).isDirectory()) {
     return;
@@ -14,7 +16,7 @@ fs.readdirSync('lib').forEach((subdir) => {
       if (file.endsWith('.sh')) {
         const basename = path.basename(file, '.sh');
         it(file, () => {
-          const result = execSync(`cd lib/${subdir}; ./${basename}.sh`).toString();
+          const result = execSync(`cd lib/${subdir}; PATH=${commandPath} ./${basename}.sh`).toString();
           const expect = fs.readFileSync(`lib/${subdir}/${basename}.txt`).toString();
           assert.equal(result, expect);
         });
