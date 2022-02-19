@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/hchiba1/mocha-test/issues"
   },
-  "homepage": "https://github.com/hchiba1/mocha-test#readme"
+  "homepage": "https://github.com/hchiba1/mocha-test#readme",
+  "dependencies": {
+    "chai": "^4.3.6",
+    "chai-fs": "^2.0.0",
+    "mocha": "^9.2.0"
+  }
 }
